@@ -1,0 +1,9 @@
+		//	gradle commands for commandline such as GitBash of cmd on windows
+		
+1.   gradle <taskname> //this will execute task by name <taskname> if present in build.gradle file
+
+2.	 gradlew <taskname> //this will check if gradle installed ,if not installed the it will install it and 
+							will execute task by name <taskname> if present in build.gradle file
+							
+3.   gradle -b <filename> <taskname> //this is used if we gradle to find task for file other than build.gradle. so <filename> if name of file and 
+										<taskname> is taskname. example gradle -b solution.gradle hello
