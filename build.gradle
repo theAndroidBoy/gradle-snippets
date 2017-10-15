@@ -1,0 +1,50 @@
+					// form command line call gradle or gradlew <task name>....this will execute task if present in build.gradle file
+
+task("taskA")  //declaring a task named taskA also using method task and also using () and "" in this statement
+				//one another way would have been project.task("taskA") as all the methods and properties are of project object
+				
+taskA.doLast({ //taskA is an obj, using its method doLast to add a clousure to the end of list of actions of taskA, also method like doLast take clousure as a parameter.
+println "taskA executed"
+	taskA.group "B+"
+             }    
+			)
+
+taskA.description 'taskA description' //taskA is an obj ,setting its property named description to value 'taskA description'
+
+///////////////////////////
+
+task first
+
+first.doFirst{						//not using () of doFirst method as gradle allows it
+	println "first executed"
+             }
+////////////////////////////////////
+
+task second 
+
+second.doLast{
+	println "second executed"
+             }
+///////////////////////////////////////////////
+
+// passing configuration clousure method# 1 using () too
+// task method can accept task name and optionaly a configuration clousure like below code
+
+task third(
+{									// this is a configuration clousure here we add value to properties and define clousures to be added actions list
+description 'taskThird description'
+doLast{
+println "task third executed"
+	  }
+}
+          )
+
+/////////////////////////////////////////////////////////
+// passing configuration clousure method# 2 not using ()
+
+task forth{
+description 'taskThird description'
+doLast{
+println "task third executed"
+      }
+          }
