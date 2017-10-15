@@ -48,3 +48,8 @@ doLast{
 println "task third executed"
       }
           }
+
+/////////////////////////////////////////////////////////
+
+task fifth <<{							////////// so <taskname> << is same as <taskname>.doLast{}...also its demeed to be depreciated
+println "this is same as doLast()"}
