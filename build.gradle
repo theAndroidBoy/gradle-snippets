@@ -25,7 +25,7 @@ task second
 second.doLast{
 	println "second executed"
              }
-///////////////////////////////////////////////
+//.........................................................................................................................
 
 // passing configuration clousure method# 1 using () too
 // task method can accept task name and optionaly a configuration clousure like below code
@@ -54,3 +54,67 @@ println "task third executed"
 task fifth <<{	/// so <taskname> << is same as <taskname>.doLast{}...also its demeed to be depreciated
 println "this is same as doLast()"
 			 }
+			 
+//.........................................................................................................................			 
+			 
+					/////////dependencies/////
+//as of now their are three types of dependencies in gradle
+//////////////      dependsOn //////////////
+// dependsOn is used if task A dependsOn on task B. in such cases task B is executed first ,followed by task A.
+ 
+task putOnshocks{
+doLast {
+println "putting on Shocks"
+}
+
+}
+
+task putOnshoes{
+dependsOn 'putOnshocks'
+
+doLast {
+println "putting on Shoes"
+}
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+								//////////// finalizedBy //////////////////
+// finalizedBy is used in situation where task A's nature demand that task B should also be executed after task A.
+	in such case task B is executed after task A.
+
+task eatBreakFast {
+finalizedBy 'brushTeeth'
+doLast{
+println 'Eating break fast'
+}
+}
+
+
+task brushTeeth {
+doLast{
+println 'Brushing Teath'
+}
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+					/////////shouldRunAfter////////////////////////////////
+// putOnFragrance is used in situation where if two tasks A and B are to be executed than the task with action property
+	shouldRunAfter should be executed second.this property is valid only if both task are to be executed.
+	
+
+task putOnFragrance {
+shouldRunAfter 'takeBath'
+doLast{
+println 'putting on Fragrance'
+	  }
+}
+
+task takeBath {
+doLast{
+println 'Taking bath'
+}
+}
+
+				
+//.......................................................................................................................
