@@ -81,7 +81,7 @@ println "putting on Shoes"
 
 								//////////// finalizedBy //////////////////
 // finalizedBy is used in situation where task A's nature demand that task B should also be executed after task A.
-	in such case task B is executed after task A.
+//	in such case task B is executed after task A.
 
 task eatBreakFast {
 finalizedBy 'brushTeeth'
@@ -100,7 +100,7 @@ println 'Brushing Teath'
 
 					/////////shouldRunAfter////////////////////////////////
 // putOnFragrance is used in situation where if two tasks A and B are to be executed than the task with action property
-	shouldRunAfter should be executed second.this property is valid only if both task are to be executed.
+//	shouldRunAfter should be executed second.this property is valid only if both task are to be executed.
 	
 
 task putOnFragrance {
@@ -115,6 +115,20 @@ doLast{
 println 'Taking bath'
 }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				/////////mustRunAfter///////////////////////
+//this is the same as shouldRunAfter but the diffrence here is they way the action property is assigned. in this case we do it 
+//with dot operator with the task we want to add the constraint to.
+
+task getReady{
+doLast{
+println 'Getting ready'
+}
+dependsOn=['putOnshoes','eatBreakFast','putOnFragrance','takeBath']
+eatBreakFast.mustRunAfter 'putOnFragrance'
+
+}
+
 
 				
 //.......................................................................................................................
