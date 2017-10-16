@@ -42,7 +42,7 @@ println "task third executed"
 /////////////////////////////////////////////////////////
 // passing configuration clousure method# 2 not using ()
 
-task forth{
+task forth{        // this "{" after taskname should be here if it is pushed to next line error will occur
 description 'taskThird description'
 doLast{
 println "task third executed"
@@ -51,5 +51,6 @@ println "task third executed"
 
 /////////////////////////////////////////////////////////
 
-task fifth <<{							////////// so <taskname> << is same as <taskname>.doLast{}...also its demeed to be depreciated
-println "this is same as doLast()"}
+task fifth <<{	/// so <taskname> << is same as <taskname>.doLast{}...also its demeed to be depreciated
+println "this is same as doLast()"
+			 }

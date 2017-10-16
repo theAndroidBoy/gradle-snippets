@@ -5,5 +5,11 @@
 2.	 gradlew <taskname> //this will check if gradle installed ,if not installed the it will install it and 
 							will execute task by name <taskname> if present in build.gradle file
 							
-3.   gradle -b <filename> <taskname> //this is used if we gradle to find task for file other than build.gradle. so <filename> if name of file and 
+3.   gradle -b <filename> <taskname> //this is used if we want to find task from file other than build.gradle. 
+										so <filename> if name of file and 
 										<taskname> is taskname. example gradle -b solution.gradle hello
+
+4.    gradle -b <filename> tasks --all //this is used to execute query on on file other
+											than build.gradle ,here tasks --all is query
+
+5.   gradle tasks --all  // will list all tasks from build.gradle file that can be performed including task defined by us.
